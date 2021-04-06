@@ -7,8 +7,8 @@
 %% solar collector specifications 
 
 UL_1  =  3.89;        % solar heat loss coefficient (W m-2 K-1)
-UL_2 = 0.01;
-eta = 0.77;       % optical efficiency (dimentionaless)
+UL_2 = 0.01;        % solar heat loss coefficient (W m-2 K-1)
+eta = 0.77;       % efficiency (dimentionaless)
 Ac  =  9.38;        % solar collector plate surface area (m2)
 rho = 1000;      % solar collector fluid density (kg m-3)
 c   = 4180;      % Solar collector plate specific heat (J kg °C)
@@ -19,8 +19,8 @@ V   = 0.003;     % Solar collector fliui volume (m3)
 % Estimation of coefficents 
 C   = rho*c*V;
 
-a1  = 8*eta/C;     % coefficent of I
-a2  = -UL_1*Ac/C;    % coefficent of Tcin and Tcout
-a3  = -UL_2*Ac/C;     % coefficent of Ta
+a1  = Ac*eta/C;     % coefficent of I
+a2  = -UL_1*Ac/C;    % coefficent of loss
+a3  = -UL_2*Ac/C;     % coefficent of loss
 a4  = V^-1;         % coefficent of FC*Tcin
 a5  = -a4;          % coefficent of FC*Tcout
